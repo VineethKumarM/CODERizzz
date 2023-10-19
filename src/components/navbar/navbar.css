@@ -1,0 +1,8 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 60%;
+    place-items: center;
+    justify-content: space-around;
+    min-width: 94vw;
+}
