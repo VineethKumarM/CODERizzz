@@ -1,0 +1,13 @@
+.editor{
+    padding: 1em;
+    min-width: 80vw;
+    /* border: ; */
+    border-radius: 1em;
+}
+
+.editor-textarea{
+    border-radius: 0.6em;
+    font-size: medium;
+    padding: 5px;
+    margin: auto;
+}
