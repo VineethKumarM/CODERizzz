@@ -1,17 +1,22 @@
-.home{
-    /* display: flex; */
-
-}
-
-.menu{
+/* content element  =  menu + main  */
+.content{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 0 2em;
 }
-
-.options{
+/* left side menu container*/
+.content_menu{
+    padding: 2em 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content:center;
+    position: relative;
+  
+}
+/* editor container */
+.content_main{
+    padding: 1em;
+    margin: auto;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
 }

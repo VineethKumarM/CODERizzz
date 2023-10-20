@@ -2,9 +2,11 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  padding-left: 0;
+  margin-left: 0;
   text-align: center;
 }
-
+/* Global colors definition*/
 .color_danger{
     color: red;
 }
@@ -24,7 +26,7 @@
 .color_dark{
     color: black;
 }
-
+/* Global background colors definition*/
 .bg-color_danger{
     background-color: red;
 }
@@ -44,7 +46,13 @@
 .bg-color_dark{
     background-color: black;
 }
-
+/* Global alignment definitions */
+.align_right {
+    text-align: right;
+}
+.pad_r0{
+    padding-right: 0;
+}
 
 /* .logo {
   height: 6em;

@@ -1,13 +1,7 @@
-.editor{
-    padding: 1em;
+/* editor container css */
+.content_main_editor{
     min-width: 80vw;
-    /* border: ; */
+    min-height: 70vh;
     border-radius: 1em;
-}
-
-.editor-textarea{
-    border-radius: 0.6em;
-    font-size: medium;
-    padding: 5px;
-    margin: auto;
+    color: black;
 }
