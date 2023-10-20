@@ -1,5 +1,4 @@
 import React, {useState, useRef} from 'react'
-import AceEditor from 'react-ace'
 // codemirror components
 import { useCodeMirror } from '@uiw/react-codemirror';
 // import languages 
@@ -12,8 +11,8 @@ import './editor.css'
 // params :
 //    lock(boolean) : lock/unlock the editor
 //    code(string) : code Text
-//    onCodeChange : handler for onChange event
-//    theme : 1:dark, 0:light
+//    onCodeChange(function) : handler for onChange event
+//    theme(boolean) : 1:dark, 0:light
 
 const Editor = ({lock, code , onCodeChange, theme}) => {
 

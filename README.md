@@ -1,8 +1,15 @@
-# React + Vite
+# CODERizzz
+## A minimal code editor with basic functionalities: copy , save, lock/unlock
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Submission for Edvanta Frontend Assignment Task.
 
-Currently, two official plugins are available:
+### Setup:
+- Open a terminal & Clone the repo
+- ```cd CODERizzz```
+- Install the required modules
+- ```npm i``` or ```npm install```
+- Start the development server
+- ```npm run dev```
+- Go to `http://localhost:5173/` in your favourite browser and start coding 🥳
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Technologies Used : HTML, CSS, NodeJS, ReactJS, Vite, CodeMirror
