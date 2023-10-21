@@ -20,3 +20,9 @@
     text-align: left;
     flex-direction: column;
 }
+.content_main_editor{
+    width: 85vw;
+    height: 70vh;
+    border-radius: 1em;
+    color: black;
+}

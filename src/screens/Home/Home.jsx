@@ -9,12 +9,13 @@ import { FaCopy, FaShareSquare, FaSave, FaLock, FaLockOpen, FaPlay } from "react
 import "./home.css"
 import "../../components/btn/_theme/btn_theme_menu.css"
 import "../../components/btn/_theme/btn_theme_opt.css"
+import BasicEditor from './basicEditor/basicEditor'
 
 const Home = () => {
     // variables to store code and editor states
     const outputRef = useRef(null)
     const [isLock, setIsLock] = useState(false)
-    const [code, setcode] = useState(localStorage.getItem('last') ||  '//Write JS code here')
+    const [code, setcode] = useState( '//Write JS code here . Protip: write your own code than copy/paste')
     const [theme, setTheme] = useState(1)
     // handlers for button click
     function handleLock() {
@@ -64,12 +65,9 @@ const Home = () => {
     }
 
     return (
-        // |        navbar           |
-        // |menu  | editor/output    |
+
         
         <div className='home'>
-            <Navbar />
-            
             <div className="content">
                 {/* side menu : show complete buttons on hover */}
                 <div className="content_menu">
@@ -83,7 +81,7 @@ const Home = () => {
                     <Btn 
                         name="Save" 
                         classProp="btn_theme_menu bg-color_info"
-                        clickProps={handleSave}
+                        // clickProps={handleSave}
                         children={<FaSave />}    
                     />
                     <Btn name={"Copy"} 
@@ -96,20 +94,32 @@ const Home = () => {
 
                 <div className="content_main">
                     {/* editor container */}
-                    <Editor 
+                    {/* <Editor 
                         lock={!isLock}
                         onCodeChange={setcode}
                         code = {code}
                         theme={theme}
-                    ></Editor>
+                    ></Editor> */}
+
+
+                    <BasicEditor     
+                        lock={isLock}
+                        onCodeChange={setcode}
+                        code = {code}
+                        theme={theme}
+                    />
                     {/* retrive choices for previous codes */}
                     {/* not implemented as not required for the task! */}
                     {
-                        localStorage.getItem('last') ? 
-                        <div className="content_main_options">
-                            Load previous codes:  <Btn name={'recent'} clickProps={updateRecent} classProp={'btn_theme_opt'}/> { localStorage.getItem('earlier') ? <Btn name={'earlier'} clickProps={updateEarlier} classProp={'btn_theme_opt'}/> : <></> }
-                        </div>
-                        : <></>
+                        // localStorage.getItem('last') ? 
+                        // <div className="content_main_options">
+                        //     Load previously saved codes:  <Btn name={'recent'} clickProps={updateRecent} classProp={'btn_theme_opt'}/> 
+                        //     { 
+                        //         localStorage.getItem('earlier') 
+                        //         ? <Btn name={'earlier'} clickProps={updateEarlier} classProp={'btn_theme_opt'}/> : <></> 
+                        //     }
+                        // </div>
+                        // : <></>
                     }
                     
                 </div>
@@ -120,14 +130,3 @@ const Home = () => {
 }
 
 export default Home
-
-                    {/* <RegButton 
-                        name="Run" classProp= "bg-color_danger"
-                        clickProps={handleRun}
-                        children={<FaPlay />}
-                    /> */}
-                    {/* <RegButton name="Share" 
-                        classProp="bg-color_info" 
-                        clickProps={handleShare}
-                        children={<FaShareSquare />}
-                    /> */}
