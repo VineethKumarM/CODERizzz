@@ -15,4 +15,5 @@
     left: 0;
     padding: 0.6em 1.2em;
     text-align: center;
+    filter: drop-shadow(0 0 4em cyan);
 }

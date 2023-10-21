@@ -54,7 +54,7 @@ const Editor = ({lock, code , onCodeChange}) => {
         <div className='content_main_editor'>
             {/* reference element for codemirror */}
             <div ref={editorRef} className='content_main_editor_ide' ></div>
-            <Btn classProp={'btn_theme_icon'} clickProps={handleClick} > { theme ? <FaSun /> :  <FaMoon /> }</Btn>
+            <Btn classProp={'btn_theme_icon'} clickProps={handleClick} > { theme ? <FaSun style={{color:'orange'}} /> :  <FaMoon /> }</Btn>
         </div>
     )
 }
