@@ -1,7 +1,12 @@
 /* editor container css */
 .content_main_editor{
-    min-width: 80vw;
-    min-height: 70vh;
+    min-width: 85vw;
+    min-height: max-content;
     border-radius: 1em;
     color: black;
 }
+
+/* .content_main_editor_ide{
+
+} */
+

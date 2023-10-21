@@ -1,0 +1,12 @@
+.btn_theme_icon{
+    /* color: orange; */
+    background-color: aliceblue;
+    width: 22px;
+    height: 22px;
+    padding: 2px;
+    align-items: center;
+    position: relative;
+    left: calc(80vw - 22px);
+    top: -70vh;
+    margin: auto;
+}

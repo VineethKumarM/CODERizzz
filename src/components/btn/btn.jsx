@@ -1,5 +1,5 @@
 import React from 'react';
-import './reg-button.css'
+import './btn.css'
 // regular button component 
 // params :
 //       name(string): button name/title 
@@ -7,16 +7,16 @@ import './reg-button.css'
 //       clickProps(function): clickhandler passed from parent
 //       children(component): children components, here i passed the appropriate icons for title
 
-const RegButton = ({name,classProp,clickProps,children}) => {
+const Btn = ({name,classProp,clickProps,children}) => {
     // button click event hadling function
     const handleClick  = (e) => {
         e.preventDefault;
         // call the required function
-        clickProps();
+        clickProps?.();
     }
 
     return (
-        <button className={'reg-button ' + classProp} onClick={handleClick}>
+        <button className={classProp} onClick={handleClick}>
             {/* show the button name and its corresponding icon */}
             {name}
             {children}
@@ -24,4 +24,4 @@ const RegButton = ({name,classProp,clickProps,children}) => {
     )
 }
 
-export default RegButton
+export default Btn

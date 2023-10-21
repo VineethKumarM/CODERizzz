@@ -1,17 +1,20 @@
 import React, {useRef, useState} from 'react'
-import RegButton from '../../components/reg-button/reg-button'
+import copy from 'copy-to-clipboard'
+//components
 import Navbar from '../../components/navbar/navbar'
 import Editor from '../../components/editor/Editor'
-import copy from 'copy-to-clipboard'
+import Btn from '../../components/btn/btn'
 import { FaCopy, FaShareSquare, FaSave, FaLock, FaLockOpen, FaPlay } from "react-icons/fa";
 // include css
 import "./home.css"
+import "../../components/btn/_theme/btn_theme_menu.css"
+import "../../components/btn/_theme/btn_theme_opt.css"
 
 const Home = () => {
     // variables to store code and editor states
     const outputRef = useRef(null)
     const [isLock, setIsLock] = useState(false)
-    const [code, setcode] = useState(localStorage.getItem('today') ||  '//Write JS code here')
+    const [code, setcode] = useState(localStorage.getItem('last') ||  '//Write JS code here')
     const [theme, setTheme] = useState(1)
     // handlers for button click
     function handleLock() {
@@ -23,19 +26,19 @@ const Home = () => {
         const res = eval(code);
         setoutput(res)
     }
-    // save most recent code(today) and the last edited code within past 24hrs(yesterday:yday)
+    // save most recent code(last) and the one before that(earlier)
     function handleSave() {
         const oneDay = 24 * 60 * 60 * 1000;//24Hrs span
-        let today = localStorage.getItem('today')
+        let last = localStorage.getItem('last')
         let lastEdit = localStorage.getItem('edited')
         let curTime = new Date().getTime();
         // check if is there is any saved code before 24hrs , if so update it
         if(curTime - lastEdit >= oneDay) {
             // discards edits before the last 24hrs
-            localStorage.setItem('yday', today? today : code)
+            localStorage.setItem('earlier', last? last : code)
             localStorage.setItem('edited', curTime)
         }
-        localStorage.setItem('today', code)
+        localStorage.setItem('last', code)
     }
     function handleCopy() {
         // copies text to clipboard
@@ -50,6 +53,15 @@ const Home = () => {
         //will implement later
         //needs a datastore????
     }
+    function updateCode(val) {
+        setcode(val)
+    }
+    function updateRecent() {
+        updateCode(localStorage.getItem('last'))
+    }
+    function updateEarlier() {
+        updateCode(localStorage.getItem('earlier'))
+    }
 
     return (
         // |        navbar           |
@@ -61,21 +73,21 @@ const Home = () => {
             <div className="content">
                 {/* side menu : show complete buttons on hover */}
                 <div className="content_menu">
-                    <RegButton 
+                    <Btn 
                         name={isLock ? "Unlock" : "Lock" } 
-                        classProp={isLock ? "bg-color_danger" : "bg-color_info"}
+                        classProp={isLock ? "btn_theme_menu bg-color_danger" : "btn_theme_menu bg-color_safe"}
                         clickProps={handleLock}
-                        children={isLock ? <FaLockOpen /> : <FaLock />}
+                        children={!isLock ? <FaLockOpen /> : <FaLock />} 
                     />
                     {/* add run */}
-                    <RegButton 
+                    <Btn 
                         name="Save" 
-                        classProp="bg-color_safe"
+                        classProp="btn_theme_menu bg-color_info"
                         clickProps={handleSave}
                         children={<FaSave />}    
                     />
-                    <RegButton name={"Copy"} 
-                        classProp="bg-color_info " 
+                    <Btn name={"Copy"} 
+                        classProp="btn_theme_menu bg-color_info " 
                         clickProps={handleCopy}
                         children={<FaCopy></FaCopy>}
                     />
@@ -93,9 +105,9 @@ const Home = () => {
                     {/* retrive choices for previous codes */}
                     {/* not implemented as not required for the task! */}
                     {
-                        localStorage.getItem('today') ? 
+                        localStorage.getItem('last') ? 
                         <div className="content_main_options">
-                            Load previous codes: <a href=''>recent</a>  { localStorage.getItem('yday') ? <a href="">earlier</a> : <></> }
+                            Load previous codes:  <Btn name={'recent'} clickProps={updateRecent} classProp={'btn_theme_opt'}/> { localStorage.getItem('earlier') ? <Btn name={'earlier'} clickProps={updateEarlier} classProp={'btn_theme_opt'}/> : <></> }
                         </div>
                         : <></>
                     }

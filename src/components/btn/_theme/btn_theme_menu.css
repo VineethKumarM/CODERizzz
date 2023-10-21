@@ -1,0 +1,18 @@
+.btn_theme_menu{
+    position: relative;
+    /* slide in from left animation */
+    left: -70px;
+    transition: border-color 0.25s;
+    transition: 0.3s;
+    display: flex;
+}
+
+/* buttons slide in when hovered */
+.btn_theme_menu:hover {
+    border-color: #646cff;
+    border-radius: 0 8px 8px 0;
+    justify-content: space-evenly;
+    left: 0;
+    padding: 0.6em 1.2em;
+    text-align: center;
+}

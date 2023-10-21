@@ -1,0 +1,14 @@
+/* basic button styles */
+button {
+    border: 1px solid transparent;
+    font-size: 1em;
+    font-weight: 500;
+    background-color: whitesmoke;
+    color: midnightblue;
+    cursor: pointer;
+    height: max-content;
+    width: 120px;
+    justify-content: space-between;
+    padding: 0.6em 0.8em 0.6em 1.2em;
+    cursor: pointer;
+}
