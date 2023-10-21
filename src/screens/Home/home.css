@@ -10,8 +10,14 @@
     flex-direction: column;
     justify-content:center;
     position: relative;
-  
+
+    will-change: filter;
 }
+
+.content_menu:hover{
+    filter: drop-shadow(0 0 3em whitesmoke);
+}
+
 /* editor container */
 .content_main{
     padding: 1em;

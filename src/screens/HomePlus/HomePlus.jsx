@@ -12,11 +12,11 @@ import "../../components/btn/_theme/btn_theme_menu.css"
 import "../../components/btn/_theme/btn_theme_opt.css"
 import * as qs from 'qs'
 
-const HomePlus = () => {
+const HomePlus = ({code,setcode}) => {
     // variables to store code and editor states
     const outputRef = useRef(null)
     const [isLock, setIsLock] = useState(false)
-    const [code, setcode] = useState(localStorage.getItem('last') ||  '//Write JS code here')
+    // const [code, setcode] = useState(localStorage.getItem('last') ||  '//Write JS code here. Protip: writing your own code here is better than copy/paste')
     const [theme, setTheme] = useState(1)
     const [output, setOutput] = useState('Your code will be ran in NodeJS\n runtime and the output appears here')
     // handlers for button click

@@ -11,11 +11,11 @@ import "../../components/btn/_theme/btn_theme_menu.css"
 import "../../components/btn/_theme/btn_theme_opt.css"
 import BasicEditor from './basicEditor/basicEditor'
 
-const Home = () => {
+const Home = ({code,setcode}) => {
     // variables to store code and editor states
     const outputRef = useRef(null)
     const [isLock, setIsLock] = useState(false)
-    const [code, setcode] = useState( '//Write JS code here . Protip: write your own code than copy/paste')
+    // const [code, setcode] = useState( '//Write JS code here. Protip: writing your own code here is better than copy/paste')
     const [theme, setTheme] = useState(1)
     // handlers for button click
     function handleLock() {
