@@ -14,17 +14,14 @@ import "../../components/btn/_theme/btn_theme_opt.css"
 
 // Upgraded Home component 
 // params :
-//    code(string) : code Text
-//    setc0de : updates the code
-//    isLock(boolean) : locked/unlocked editor
+//    code : code Text
+//    setcode : updates the code
+//    isLock: locked/unlocked editor
 //    handleLock : lock toggler
-
-
 
 const HomePlus = ({code,setcode, isLock,handleLock}) => {
     // variables to store code and editor states
     const outputRef = useRef(null)
-    const [theme, setTheme] = useState(1)
     const [output, setOutput] = useState('Your code will be ran in NodeJS\n runtime and the output appears here')
     const [seen, setSeen] = useState(false)
 
@@ -95,10 +92,6 @@ const HomePlus = ({code,setcode, isLock,handleLock}) => {
             alert('Copied to Clipboard')
         }
     }
-    function handleShare() {
-        //will implement later
-        //needs a datastore????
-    }
     function updateCode(val) {
         setcode(val)
     }
@@ -117,11 +110,11 @@ const HomePlus = ({code,setcode, isLock,handleLock}) => {
         // |        navbar           |
         // |menu  | editor/output    |
         
-        <div className='homePlus' onClick={handlePopupHide}>    
+        <div onClick={handlePopupHide}>    
             {!seen ? <Popup toggle={togglePop} /> : <></>}        
             <div className="content">
                 {/* side menu : show complete buttons on hover */}
-                <div className="content_menu">
+                <div className="content__menu">
                     <Btn 
                         name={isLock ? "Unlock" : "Lock" } 
                         classProp={isLock ? "btn_theme_menu bg-color_danger" : "btn_theme_menu bg-color_safe"}
@@ -145,27 +138,22 @@ const HomePlus = ({code,setcode, isLock,handleLock}) => {
                         clickProps={handleCopy}
                         children={<FaCopy></FaCopy>}
                     />
-                    <Btn name="Share" 
-                        classProp="btn_theme_menu bg-color_info" 
-                        clickProps={handleShare}
-                        children={<FaShareSquare />}
-                    />
                 </div>
 
-                <div className="content_main">
+                <div className="content__main">
                     {/* editor container */}
                     <Editor 
                         lock={!isLock}
                         onCodeChange={setcode}
                         code = {code}
-                        theme={theme}
+
                     ></Editor>
 
                     {/* retrive choices for previous codes */}
                     {/* not implemented as not required for the task! */}
                     {
                         localStorage.getItem('last') ? 
-                        <div className="content_main_options">
+                        <div className="content__main__options">
                             Load previously saved codes:  <Btn name={'recent'} clickProps={updateRecent} classProp={'btn_theme_opt'}/> 
                             { 
                                 localStorage.getItem('earlier') 
@@ -175,7 +163,7 @@ const HomePlus = ({code,setcode, isLock,handleLock}) => {
                         : <></>
                     }
                     <textarea 
-                        className='output'
+                        className='content__main__output'
                         value={output}
                         disabled
                     />

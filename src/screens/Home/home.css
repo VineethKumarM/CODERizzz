@@ -4,7 +4,7 @@
     flex-direction: row;
 }
 /* left side menu container*/
-.content_menu{
+.content__menu{
     padding: 2em 0;
     display: flex;
     flex-direction: column;
@@ -14,19 +14,19 @@
     will-change: filter;
 }
 
-.content_menu:hover{
+.content__menu:hover{
     filter: drop-shadow(0 0 3em whitesmoke);
 }
 
 /* editor container */
-.content_main{
+.content__main{
     padding: 1em;
     margin: auto;
     display: flex;
     text-align: left;
     flex-direction: column;
 }
-.content_main_editor{
+.content__main__editor{
     width: 85vw;
     height: 70vh;
     border-radius: 1em;

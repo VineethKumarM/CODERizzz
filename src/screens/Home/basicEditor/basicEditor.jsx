@@ -92,7 +92,7 @@ const BasicEditor = ({lock, code , onCodeChange}) => {
 
 
     return (
-        <div className="content_main_editor basic-editor">
+        <div className="content__main__editor basic-editor">
             <div className="basic-editor__lines" id='lineColumn' ref={lineColumnRef}>
                 <span >1</span>
             </div>

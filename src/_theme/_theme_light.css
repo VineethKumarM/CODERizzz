@@ -3,7 +3,7 @@
     background-color: whitesmoke;
 }
 
-#light .content_menu:hover{
+#light .content__menu:hover{
     filter: drop-shadow(0 0 3em black);
 }
 

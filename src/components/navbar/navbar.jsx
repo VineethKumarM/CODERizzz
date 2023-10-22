@@ -1,4 +1,4 @@
-import React , {useContext, useState }from 'react'
+import React , { useState }from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Btn from '../btn/btn'
 import { FaPlus,FaRegSun, FaRegMoon } from "react-icons/fa";
@@ -6,12 +6,20 @@ import { FaPlus,FaRegSun, FaRegMoon } from "react-icons/fa";
 import './navbar.css'
 import '../btn/_theme/btn_theme_navLink.css'
 import '../btn/_theme/btn_theme_navToggle.css'
+
+// navbar component
+// params:
+//      theme: dark/light
+//      handleClick: toggle function for theme
+
 const Navbar = ({theme, handleClick}) => {
-    // basic navbar with website title 
+
     const location = useLocation();
     const navigate = useNavigate();
+    // stores basic or upgraded home page
     const [upgraded, setUpgraded] = useState(location.pathname==='/upgraded')
-    function handleUpdate() {
+
+    function handleUpgrade() {
         if(upgraded) {
             setUpgraded(false)
             navigate('/')
@@ -25,12 +33,14 @@ const Navbar = ({theme, handleClick}) => {
         <div className='nav'>
             <h1>CODERizzz {upgraded ? <FaPlus className='nav__icon'/> : <></>} </h1>
             <div className="nav__menu">
+                {/* navigation button */}
                 <Btn 
                     name={upgraded ? "Basic" : "Upgrade"}
                     classProp={'btn_theme_navLink'}
-                    clickProps={handleUpdate}
+                    clickProps={handleUpgrade}
                     
                 />
+                {/* theme change button */}
                 <Btn 
                     classProp={'btn_theme_navToggle'} 
                     clickProps={handleClick} 

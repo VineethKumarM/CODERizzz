@@ -1,75 +1,56 @@
 #root {
   min-width: 100vw;
-  /* margin: 0 auto; */
   margin-left: 0;
   text-align: center;
 }
-
 .App{
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
 }
+
 /* Global colors definition*/
 .color_danger{
     color: red;
 }
-
 .color_safe{
     color: green;
 }
-
 .color_info{
     color: #0dcaf0;
 }
-
 .color_other{
     color: blueviolet;
 }
-
 .color_dark{
     color: black;
 }
+
 /* Global background colors definition*/
 .bg-color_danger{
     background-color: red;
 }
-
 .bg-color_safe{
     background-color: green;
 }
-
 .bg-color_info{
     background-color: #0dcaf0;
 }
-
 .bg-color_other{
     background-color: blueviolet;
 }
-
 .bg-color_dark{
     background-color: black;
 }
+
 /* Global alignment definitions */
 .align_right {
     text-align: right;
 }
-.pad_r0{
-    padding-right: 0;
+.align_left{
+    text-align: left;
 }
 
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 4em #9a9a9daa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-} */
 
 
 

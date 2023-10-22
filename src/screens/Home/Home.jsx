@@ -43,48 +43,42 @@ const Home = ({code,setcode, isLock,handleLock}) => {
             alert('Copied to Clipboard')
         }
     }
-    function updateCode(val) {
-        setcode(val)
-    }
-
 
     return (
 
-        
-        <div className='home '>
-            <div className="content">
-                {/* side menu : show complete buttons on hover */}
-                <div className="content_menu">
-                    <Btn 
-                        name={isLock ? "Unlock" : "Lock" } 
-                        classProp={isLock ? "btn_theme_menu bg-color_danger" : "btn_theme_menu bg-color_safe"}
-                        clickProps={handleLock}
-                        children={!isLock ? <FaLockOpen /> : <FaLock />} 
-                    />
-                    <Btn 
-                        name="Save" 
-                        classProp="btn_theme_menu bg-color_info"
-                        clickProps={handleSave}
-                        children={<FaSave />}    
-                    />
-                    <Btn name={"Copy"} 
-                        classProp="btn_theme_menu bg-color_info " 
-                        clickProps={handleCopy}
-                        children={<FaCopy></FaCopy>}
-                    />
-                </div>
-
-                <div className="content_main">
-                    {/* basic editor with only self implemented indentation features */}
-                    <BasicEditor     
-                        lock={isLock}
-                        onCodeChange={setcode}
-                        code = {code}
-                    />
-                </div>
-
+        <div className="content">
+            {/* side menu : show complete buttons on hover */}
+            <div className="content__menu">
+                <Btn 
+                    name={isLock ? "Unlock" : "Lock" } 
+                    classProp={isLock ? "btn_theme_menu bg-color_danger" : "btn_theme_menu bg-color_safe"}
+                    clickProps={handleLock}
+                    children={!isLock ? <FaLockOpen /> : <FaLock />} 
+                />
+                <Btn 
+                    name="Save" 
+                    classProp="btn_theme_menu bg-color_info"
+                    clickProps={handleSave}
+                    children={<FaSave />}    
+                />
+                <Btn name={"Copy"} 
+                    classProp="btn_theme_menu bg-color_info " 
+                    clickProps={handleCopy}
+                    children={<FaCopy></FaCopy>}
+                />
             </div>
+
+            <div className="content__main">
+                {/* basic editor with only self implemented indentation features */}
+                <BasicEditor     
+                    lock={isLock}
+                    onCodeChange={setcode}
+                    code = {code}
+                />
+            </div>
+
         </div>
+
     )
 }
 

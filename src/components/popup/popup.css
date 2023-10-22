@@ -9,7 +9,7 @@
 
 }
     
-.popup-inner {
+.popup__inner {
     background-color: white;
     color: black;
     position: absolute;
@@ -27,11 +27,11 @@
     font-size: 1rem;
 }
     
-.popup-inner h2 {
+.popup__inner h2 {
     margin-top: 0;
 }
 
-.popup-inner ul{
+.popup__inner ul{
     display: flex;
     flex-direction: column;
     text-align: left;

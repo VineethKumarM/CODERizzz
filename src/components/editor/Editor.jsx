@@ -13,10 +13,9 @@ import '../btn/_theme/btn_theme_icon.css'
 
 // Code editor component (with CodeMirror)
 // params :
-//    lock(boolean) : lock/unlock the editor
-//    code(string) : code Text
-//    onCodeChange(function) : handler for onChange event
-
+//    lock : lock/unlock the editor
+//    code: code Text
+//    onCodeChange: handler for onChange event
 
 const Editor = ({lock, code , onCodeChange}) => {
 
@@ -53,9 +52,9 @@ const Editor = ({lock, code , onCodeChange}) => {
     }
 
     return (
-        <div className='content_main_editor'>
+        <div className='content__main__editor'>
             {/* reference element for codemirror */}
-            <div ref={editorRef} className='content_main_editor_ide' ></div>
+            <div ref={editorRef} className='content__main__editor__ide' ></div>
             <Btn classProp={'btn_theme_icon'} clickProps={handleClick} > { mode ? <FaSun style={{color:'orange'}} /> :  <FaMoon style={{color:'black'}}/> }</Btn>
         </div>
     )

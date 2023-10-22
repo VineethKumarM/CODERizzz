@@ -5,6 +5,7 @@
     background-color: wheat;
     border-radius: 1em;
 }
+
 #dark .btn_theme_navLink:hover{
     filter: drop-shadow(0 0 1.4em rgba(245, 245, 245, 0.719));
 }

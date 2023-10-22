@@ -1,18 +1,12 @@
 import { useState, createContext } from 'react'
 import {Route , BrowserRouter as Router,Routes} from 'react-router-dom'
-import './App.css'
 import Home from './screens/Home/Home'
 import HomePlus from './screens/HomePlus/HomePlus'
 import Navbar from './components/navbar/navbar'
-
-
 // dark light css
 import './_theme/_theme_light.css'
 import './_theme/_theme_dark.css'
-//todo
-
-// plus:
-// share functionality: needs a key value database
+import './App.css'
 
 const ThemeContext = createContext(null)
 function App() {
@@ -47,7 +41,7 @@ function App() {
                     <Navbar theme={theme} handleClick={toggleTheme}/>
                     <Routes>
                         <Route eaxct path="/" element={<Home 
-                                                         code={code} 
+                                                            code={code} 
                                                             setcode={setCode}
                                                             isLock={isLock}
                                                             handleLock={handleLock}  
