@@ -1,5 +1,5 @@
 import React , {useState }from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import Btn from '../btn/btn'
 import { FaPlus } from "react-icons/fa";
 
@@ -7,8 +7,9 @@ import './navbar.css'
 import '../btn/_theme/btn_theme_navLink.css'
 const Navbar = () => {
     // basic navbar with website title 
-    const [upgraded, setUpgraded] = useState(false)
+    const location = useLocation();
     const navigate = useNavigate();
+    const [upgraded, setUpgraded] = useState(location.pathname==='/upgraded')
     function handleUpdate() {
         if(upgraded) {
             setUpgraded(false)

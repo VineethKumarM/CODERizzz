@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import copy from 'copy-to-clipboard'
 //components
 import Navbar from '../../components/navbar/navbar'
@@ -11,6 +11,7 @@ import "./homePlus.css"
 import "../../components/btn/_theme/btn_theme_menu.css"
 import "../../components/btn/_theme/btn_theme_opt.css"
 import * as qs from 'qs'
+import Popup from '../../components/popup/popup'
 
 const HomePlus = ({code,setcode}) => {
     // variables to store code and editor states
@@ -19,6 +20,18 @@ const HomePlus = ({code,setcode}) => {
     // const [code, setcode] = useState(localStorage.getItem('last') ||  '//Write JS code here. Protip: writing your own code here is better than copy/paste')
     const [theme, setTheme] = useState(1)
     const [output, setOutput] = useState('Your code will be ran in NodeJS\n runtime and the output appears here')
+    const [seen, setSeen] = useState(false)
+
+    function togglePop () {
+        setSeen(!seen);
+    };
+
+    useEffect(()=>{
+        if(localStorage.getItem('last')) {
+            setcode(localStorage.getItem('last'))
+        }
+    },[])
+
     // handlers for button click
     function handleLock() {
         // lock/unlock the editor 
@@ -95,11 +108,16 @@ const HomePlus = ({code,setcode}) => {
         updateCode(localStorage.getItem('earlier'))
     }
 
+    function handlePopupHide(e) {
+        if(e.target.className==='popup') togglePop()
+    }
+
     return (
         // |        navbar           |
         // |menu  | editor/output    |
         
-        <div className='homePlus'>            
+        <div className='homePlus' onClick={handlePopupHide}>    
+            {!seen ? <Popup toggle={togglePop} /> : <></>}        
             <div className="content">
                 {/* side menu : show complete buttons on hover */}
                 <div className="content_menu">

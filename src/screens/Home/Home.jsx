@@ -67,7 +67,7 @@ const Home = ({code,setcode}) => {
     return (
 
         
-        <div className='home'>
+        <div className='home '>
             <div className="content">
                 {/* side menu : show complete buttons on hover */}
                 <div className="content_menu">
@@ -77,7 +77,6 @@ const Home = ({code,setcode}) => {
                         clickProps={handleLock}
                         children={!isLock ? <FaLockOpen /> : <FaLock />} 
                     />
-                    {/* add run */}
                     <Btn 
                         name="Save" 
                         classProp="btn_theme_menu bg-color_info"
@@ -89,39 +88,16 @@ const Home = ({code,setcode}) => {
                         clickProps={handleCopy}
                         children={<FaCopy></FaCopy>}
                     />
-                    {/* add share */}
                 </div>
 
                 <div className="content_main">
-                    {/* editor container */}
-                    {/* <Editor 
-                        lock={!isLock}
-                        onCodeChange={setcode}
-                        code = {code}
-                        theme={theme}
-                    ></Editor> */}
-
-
+                    {/* basic editor with only self implemented indentation features */}
                     <BasicEditor     
                         lock={isLock}
                         onCodeChange={setcode}
                         code = {code}
                         theme={theme}
                     />
-                    {/* retrive choices for previous codes */}
-                    {/* not implemented as not required for the task! */}
-                    {
-                        // localStorage.getItem('last') ? 
-                        // <div className="content_main_options">
-                        //     Load previously saved codes:  <Btn name={'recent'} clickProps={updateRecent} classProp={'btn_theme_opt'}/> 
-                        //     { 
-                        //         localStorage.getItem('earlier') 
-                        //         ? <Btn name={'earlier'} clickProps={updateEarlier} classProp={'btn_theme_opt'}/> : <></> 
-                        //     }
-                        // </div>
-                        // : <></>
-                    }
-                    
                 </div>
 
             </div>
