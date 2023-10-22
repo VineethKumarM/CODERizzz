@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import copy from 'copy-to-clipboard'
+import * as qs from 'qs'
 //components
 import Editor from '../../components/editor/Editor'
 import Btn from '../../components/btn/btn'
