@@ -1,23 +1,28 @@
 import React, {useEffect, useRef, useState} from 'react'
 import copy from 'copy-to-clipboard'
 //components
-import Navbar from '../../components/navbar/navbar'
 import Editor from '../../components/editor/Editor'
 import Btn from '../../components/btn/btn'
+import Popup from '../../components/popup/popup'
 import { FaCopy, FaShareSquare, FaSave, FaLock, FaLockOpen, FaPlay } from "react-icons/fa";
 // include css
 import "../Home/home.css"
 import "./homePlus.css"
 import "../../components/btn/_theme/btn_theme_menu.css"
 import "../../components/btn/_theme/btn_theme_opt.css"
-import * as qs from 'qs'
-import Popup from '../../components/popup/popup'
 
-const HomePlus = ({code,setcode}) => {
+// Upgraded Home component 
+// params :
+//    code(string) : code Text
+//    setc0de : updates the code
+//    isLock(boolean) : locked/unlocked editor
+//    handleLock : lock toggler
+
+
+
+const HomePlus = ({code,setcode, isLock,handleLock}) => {
     // variables to store code and editor states
     const outputRef = useRef(null)
-    const [isLock, setIsLock] = useState(false)
-    // const [code, setcode] = useState(localStorage.getItem('last') ||  '//Write JS code here. Protip: writing your own code here is better than copy/paste')
     const [theme, setTheme] = useState(1)
     const [output, setOutput] = useState('Your code will be ran in NodeJS\n runtime and the output appears here')
     const [seen, setSeen] = useState(false)
@@ -33,16 +38,11 @@ const HomePlus = ({code,setcode}) => {
     },[])
 
     // handlers for button click
-    function handleLock() {
-        // lock/unlock the editor 
-        setIsLock(!isLock)
-    }
     function handleRun() {
         // browser env
         // // run code -> output displays in console
         // const res = eval(code);
         // setoutput(res)
-
 
     // nodejs runtime env
         var query = qs.stringify({

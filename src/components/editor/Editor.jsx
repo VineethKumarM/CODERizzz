@@ -10,17 +10,18 @@ import { basicDark, basicLight } from '@uiw/codemirror-theme-basic';
 //css
 import './editor.css'
 import '../btn/_theme/btn_theme_icon.css'
-// Code editor component 
+
+// Code editor component (with CodeMirror)
 // params :
 //    lock(boolean) : lock/unlock the editor
 //    code(string) : code Text
 //    onCodeChange(function) : handler for onChange event
-//    theme(boolean) : 1:dark, 0:light
+
 
 const Editor = ({lock, code , onCodeChange}) => {
 
     const editorRef = useRef(null)
-    const [theme, settheme] = useState(1)
+    const [mode, setmode] = useState(localStorage.getItem('mode') ||  0)
     // codemirror configurations
     const {setContainer} = useCodeMirror({
         // styles 
@@ -35,9 +36,9 @@ const Editor = ({lock, code , onCodeChange}) => {
         options:{
             autoComplete:true,
         },
-        // languages,theme, state
+        // languages,dark/light mode, state
         extensions : [javascript()],
-        theme: theme ? basicDark : basicLight,
+        theme: mode ? basicDark : basicLight,
         editable: lock,
         // code and code change handler
         value: code,
@@ -47,14 +48,15 @@ const Editor = ({lock, code , onCodeChange}) => {
     })
 
     function handleClick() {
-        settheme(!theme)
+        localStorage.setItem('mode', !mode)
+        setmode(!mode)
     }
 
     return (
         <div className='content_main_editor'>
             {/* reference element for codemirror */}
             <div ref={editorRef} className='content_main_editor_ide' ></div>
-            <Btn classProp={'btn_theme_icon'} clickProps={handleClick} > { theme ? <FaSun style={{color:'orange'}} /> :  <FaMoon /> }</Btn>
+            <Btn classProp={'btn_theme_icon'} clickProps={handleClick} > { mode ? <FaSun style={{color:'orange'}} /> :  <FaMoon style={{color:'black'}}/> }</Btn>
         </div>
     )
 }

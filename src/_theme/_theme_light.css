@@ -1,0 +1,23 @@
+#light{
+    color: #232323;
+    background-color: whitesmoke;
+}
+
+#light .content_menu:hover{
+    filter: drop-shadow(0 0 3em black);
+}
+
+#light textarea{
+    color: black;
+    background-color: white;
+    border-left: 1px solid #d7d7d8;
+}
+
+#light .basic-editor__lines{
+    color: black;
+    background-color: #EEEEF2;
+}
+
+#light textarea:focus {
+    outline: 1px solid #aeaca7;
+}

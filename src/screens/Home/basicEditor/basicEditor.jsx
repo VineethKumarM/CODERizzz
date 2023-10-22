@@ -1,11 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react'
 import './basicEditor.css'
+
 // Code editor component 
 // params :
 //    lock(boolean) : lock/unlock the editor
 //    code(string) : code Text
 //    onCodeChange(function) : handler for onChange event
-//    theme(boolean) : 1:dark, 0:light
+
 
 const BasicEditor = ({lock, code , onCodeChange}) => {
 
@@ -13,8 +14,6 @@ const BasicEditor = ({lock, code , onCodeChange}) => {
     const lineColumnRef = useRef(null);
     // var colLines=1;
     const [colLines, setcolLines] = useState(1)
-    // Handle changes to the code content
-
 
     // Indent the selected lines
     const handleKeyDown = (e) => {

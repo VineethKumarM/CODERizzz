@@ -7,8 +7,8 @@ button {
     color: midnightblue;
     cursor: pointer;
     height: max-content;
-    width: 120px;
+    width: 100px;
     justify-content: space-between;
-    padding: 0.6em 0.8em 0.6em 1.2em;
+    padding: 0.6em 0.5em 0.6em 1.2em;
     cursor: pointer;
 }
